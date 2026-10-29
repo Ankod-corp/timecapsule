@@ -1,13 +1,13 @@
 # Лабораторная работа: Amazon EC2 и развёртывание веб-приложения
 
-**ФИО:** <Фамилия Имя>
-**Группа:** <группа>
-**Специальность:** <Informatică / Informatică aplicată>
+**ФИО:** Cherpici Nichita
+**Группа:** IA2404
+**Специальность:** Informatică aplicată
 
 **Уровень:** продвинутый
 **Приложение:** TimeCapsule (`open_capsules_php_functional`)
 **Вариант деплоя:** B (скрипт `deploy.sh`)
-**Репозиторий:** https://github.com/<nickname>-cloud/timecapsule
+**Репозиторий:** https://github.com/Ankod-corp/timecapsule
 
 ---
 
@@ -15,38 +15,30 @@
 
 **Задание 1: бюджет ZeroSpend**
 
-![Бюджет](screenshots/01-budget.png)
 Бюджет ZeroSpend в списке Budgets.
 
 **Задание 2: экземпляр webserver**
 
-![Instance running](screenshots/02-running.png)
 Экземпляр webserver в состоянии Running, все status checks пройдены.
 
-![nginx](screenshots/02-nginx.png)
 Приветственная страница nginx по публичному IP.
 
 **Задание 3: мониторинг и диагностика**
 
-![Monitoring](screenshots/03-monitoring.png)
 Вкладка Monitoring с метриками CloudWatch.
 
-![System log](screenshots/03-system-log.png)
 Фрагмент System log с установкой nginx из User data.
 
 **Задание 4: SSH**
 
-![SSH](screenshots/04-ssh.png)
 Успешное подключение по SSH и вывод `systemctl status nginx` (active (running)).
 
 **Задание 5: статический сайт**
 
-![Static site](screenshots/05-site.png)
 Мой сайт из трёх страниц в браузере и вывод `ls -l /usr/share/nginx/html`.
 
 **Задание 6: остановка через AWS CLI**
 
-![Stop](screenshots/06-stop.png)
 Команда `aws ec2 stop-instances` и её вывод (состояние stopping).
 
 ---
@@ -55,46 +47,36 @@
 
 **Задание 9**
 
-![psql](screenshots/09-psql.png)
 Вывод `psql -h localhost -U timecapsule -d timecapsule -c "SELECT 1;"`: таблица с числом 1.
 
 **Задание 10**
 
-![init-db](screenshots/10-init-db.png)
 Вывод `php bin/init-db.php`: `Database is ready`.
 
 **Задание 11**
 
-![nginx -t](screenshots/11-nginx-t.png)
 Вывод `sudo nginx -t`: syntax is ok, test is successful.
 
-![App](screenshots/11-app.png)
 Страница входа TimeCapsule по публичному IP.
 
-![Health](screenshots/11-health.png)
 Ответ `/health`: `{"status":"ok","db":"ok",...}`.
 
 **Задание 12 (вариант B)**
 
-![deploy.sh](screenshots/12-deploy.png)
 Вывод `deploy.sh`, запущенного с моего компьютера командой `ssh ... ./deploy.sh`.
 
 **Задание 13**
 
-![New version](screenshots/13-new-version.png)
 Новая версия: в подвале страницы моё имя, ранее созданная капсула с файлом на месте.
 
-![500](screenshots/13-error-500.png)
 Ошибка 500 на главной странице после деплоя сломанного коммита.
 
-![Rollback](screenshots/13-rollback.png)
 Сайт работает после `git revert` и повторного деплоя.
 
 ---
 
 ## 3. Архитектура
 
-![Архитектура](docs/architecture.png)
 
 Схема развёртывания: пользователи по HTTP попадают в AWS Cloud (eu-central-1, default VPC, зона доступности, подсеть, Security Group) на экземпляр EC2 с nginx, PHP-FPM и PostgreSQL. Сервер забирает код с GitHub по HTTPS, а с моего компьютера выполняются `git push` и запуск деплоя по SSH.
 
