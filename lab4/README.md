@@ -5,6 +5,7 @@
 | **Группа** | IA2404 |
 | **Уровень** | Продвинутый (задания 1–14) |
 
+<img width="1280" height="867" alt="image" src="https://github.com/user-attachments/assets/4b381aca-8787-4340-9212-c16b4e587367" />
 
 Регион: `eu-central-1` (Frankfurt). Бакет: `timecapsule-dev-uploads-ankord`. Номера рисунков совпадают с номерами файлов в `img/`.
 
