@@ -396,8 +396,6 @@ aws s3 sync storage/uploads s3://$BUCKET/uploads/
 
 ## Задание 14. Архитектура и решение
 
-**[TODO]** Вставьте обновлённую схему (бакет S3 вне VPC, роль сервера, стрелки `PutObject`/`DeleteObject` и скачивание по подписанному URL) и ссылку на [ADR-0003](docs/adr/0003-attachment-storage.md).
-
 ---
 
 # Итог
