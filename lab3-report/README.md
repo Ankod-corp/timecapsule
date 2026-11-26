@@ -76,8 +76,6 @@ VPC: `10.5.0.0/16`.
 
 *Группы `timecapsule-dev-web-sg`, `timecapsule-dev-bastion-sg` и `timecapsule-dev-db-sg` созданы в VPC `vpc-0dbfeac1d0dd018b1`.*
 
-> **Скриншот входящих правил:** `<добавить скриншот вкладки Inbound rules для трёх групп>`
-
 Входящие правила:
 
 | Группа | Порт | Источник |
